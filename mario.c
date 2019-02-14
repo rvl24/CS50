@@ -4,7 +4,7 @@
 int main(void)
 {
     int h = get_int("Enter an integer between 1 and 8 (inclusive):\n");
-    while (h > 8 || h < 4)
+    while (h > 8 || h < 1)
     {
         h = get_int("That's not quite right. Try again:\n");
     }
