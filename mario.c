@@ -34,10 +34,6 @@ int main(void)
             {
                 printf("#");
             }
-            for (int d = 0; d <= h - i; d++)
-            {
-                printf(" ");
-            }
             printf("\n");
             i++;
         }
