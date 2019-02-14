@@ -33,13 +33,14 @@ int main(void)
     }
     int final_sum = last + second_2_last;
     int  first_digit = floor(user_number / pow(10, (counter - 1)));
+    int first_2_digits = floor(user_number / pow(10, (counter - 2)));
     if (final_sum % 10 == 0)
     {
-        if (first_digit == 3)
+        if (first_2_digits == 34 || first_2_digits == 37)
         {
             printf("AMEX\n"); 
         }
-        else if (first_digit == 5)
+        else if (first_2_digits >= 51 && first_2_digits <= 55)
         {
             printf("MASTERCARD\n");
         }
