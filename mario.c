@@ -15,7 +15,7 @@ int main(void)
         {
             //make right side of pyramid
             
-            for (int a = 0; a <= h - i; a++)
+            for (int a = 1; a < h - i; a++)
             {
                 printf(" ");
             }
