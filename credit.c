@@ -36,15 +36,15 @@ int main(void)
     int first_2_digits = floor(user_number / pow(10, (counter - 2)));
     if (final_sum % 10 == 0)
     {
-        if (first_2_digits == 34 || first_2_digits == 37)
+        if ((first_2_digits == 34 || first_2_digits == 37) && counter == 15)
         {
             printf("AMEX\n"); 
         }
-        else if (first_2_digits >= 51 && first_2_digits <= 55)
+        else if ((first_2_digits >= 51 && first_2_digits <= 55) && counter == 16)
         {
             printf("MASTERCARD\n");
         }
-        else if (first_digit == 4)
+        else if (first_digit == 4 && (counter == 13 || counter == 16))
         {
             printf("VISA\n");
         }
