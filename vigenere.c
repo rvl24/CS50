@@ -38,19 +38,24 @@ int main(int argc, string argv[])
             string p = get_string("plaintext: ");
             int l_plaintext = strlen(p);
             printf("ciphertext: ");
-            for (int i = 0, m = 0; i < l_plaintext; i++, m++)
+            for (int i = 0, m = 0; i < l_plaintext; i++)
             {
                 if (m == l_key)
                 {
                     m = 0;
                 }
                 rotate_letter(p[i], k[m]);
+                if (isalpha(p[i]))
+                {
+                    m++;
+                }
             }
             printf("\n");
         }
         else
         {
-            printf("Usage: ./caesar keyword\n");       
+            printf("Usage: ./caesar keyword\n");      
+            return 1;
         }
     }
 }
