@@ -2,12 +2,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include <stdlib.h>
+#define L_ALPHABET 26
 
 void rotate_letter(char c, int k);
 
 int main(int argc, string argv[])
 {
+    //check that command line argument was supplied
     if (argc != 2)
     {
         printf("Usage: ./caesar keyword\n");
@@ -16,35 +17,40 @@ int main(int argc, string argv[])
     else
     {
         string k = argv[1];
+        int l_k = strlen(k);
         int j = 0;
-        int l_key = strlen(k);
-        for (int i = 0; i < l_key; i++)  
+        for (int i = 0; i < l_k; i++)  
         {
             if (isalpha(k[i]))
             {
                 j++;
+                //convert letters in 'k' to ints 0-26
                 if isupper(k[i])
                 {
-                    k[i] = k[i] - 'A';
+                    k[i] -= 'A';
                 }
                 else
                 {
-                    k[i] = k[i] - 'a';
+                    k[i] -= 'a';
                 }
             }
         }
-        if (j == l_key)
+        //check that all characters in 'k' are letters 
+        if (j == l_k)
         { 
             string p = get_string("plaintext: ");
-            int l_plaintext = strlen(p);
+            int l_p = strlen(p);
             printf("ciphertext: ");
-            for (int i = 0, m = 0; i < l_plaintext; i++)
+            for (int i = 0, m = 0; i < l_p; i++)
             {
-                if (m == l_key)
+                //keep 'k' counter looping through 'k'
+                if (m == l_k)
                 {
                     m = 0;
                 }
                 rotate_letter(p[i], k[m]);
+                //only shift to next 'k' value if the current 
+                //one was used on a letter
                 if (isalpha(p[i]))
                 {
                     m++;
@@ -59,17 +65,17 @@ int main(int argc, string argv[])
         }
     }
 }
-
+//rotate_letter shifts letter c by k spaces 
 void rotate_letter(char c, int k)
 {
     int n = 0;
     if isupper(c)
     {
-        n = 'A' + (c - 'A' + k) % 26;
+        n = 'A' + (c - 'A' + k) % L_ALPHABET;
     }
     else if islower(c)
     {
-        n = 'a' + (c - 'a' + k) % 26;
+        n = 'a' + (c - 'a' + k) % L_ALPHABET;
     }
     else
     {
