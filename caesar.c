@@ -4,8 +4,11 @@
 #include <ctype.h>
 #include <stdlib.h>
 
+const int L_ALPHABET = 26; 
+
 int main(int argc, string argv[])
 {
+    //check that command line argument was supplied
     if (argc != 2)
     {
         printf("Usage: ./caesar key\n");
@@ -13,30 +16,37 @@ int main(int argc, string argv[])
     }
     else
     {
+        string k_string = argv[1];
+        int l_k = strlen(k_string);
         int j = 0;
-        for (int i = 0; i < strlen(argv[1]); i++)  
+        //check that all characters of key are digits
+        for (int i = 0; i < l_k; i++)  
         {
-            if (isdigit(argv[1][i]))
+            if (isdigit(k_string[i]))
             {
                 j++;
             }
         }
-        if (j == strlen(argv[1]))
+        if (j == l_k)
         {
-            int k = atoi(argv[1]); 
+            int k = atoi(k_string);
             string p = get_string("plaintext: ");
+            int l_p = strlen(p);
             printf("ciphertext: ");
-            for (int i = 0; i < strlen(p); i++)
+            for (int i = 0; i < l_p; i++)
             {
                 int n = 0;
+                //shift each letter in 'p' by k, treating uppercase &
+                //lowercase differently b/c ASCII values are different 
                 if isupper(p[i])
                 {
-                    n = 'A' + (p[i] - 'A' + k) % 26;
+                    n = 'A' + (p[i] - 'A' + k) % L_ALPHABET;
                 }
                 else if islower(p[i])
                 {
-                    n = 'a' + (p[i] - 'a' + k) % 26;
+                    n = 'a' + (p[i] - 'a' + k) % L_ALPHABET;
                 }
+                //leave nonalphabetic characters alone
                 else
                 {
                     n = p[i];
@@ -47,7 +57,7 @@ int main(int argc, string argv[])
         }
         else
         {
-             printf("Usage: ./caesar key\n");       
+            printf("Usage: ./caesar key\n");       
         }
     }
-    }
+}
