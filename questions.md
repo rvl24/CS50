@@ -42,7 +42,7 @@ A negative `biHeight` indicates that the bitmap is organized top-down, starting 
 The third argument specifies the number of times to read in a block of the size provided as the second argument. It's used in three places in `copy.c`: to read in the two headers, and lastly in a loop, where, in each iteration, a single RGBTRIPLE is read in. In each of these cases, a single chunk is dealt with at a time--hence the `1`. 
 ## What value does `copy.c` assign to `padding` if `bi.biWidth` is `3`?
 
-If `bi.biwidth` is `3`.
+If `bi.biwidth` is `3`, `3` is assigned to `padding`.
 ## What does `fseek` do?
 
 `fseek` moves the position of the file pointer--in copy.c, for example, it's used to move past any padding in the input file. 
