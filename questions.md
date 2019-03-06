@@ -49,4 +49,4 @@ If `bi.biwidth` is `3`, `3` is assigned to `padding`.
 
 ## What is `SEEK_CUR`?
 
-`SEEK_CUR` is a constant within the function `fseek` which indicates that the pointer sould be moved the total specified amount with respect to its current position, rather than the beginning or end of the file. 
+`SEEK_CUR` is a constant within the function `fseek` which indicates that the pointer should be moved the total specified amount with respect to its current position, rather than the beginning or end of the file. 
