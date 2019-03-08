@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
     {
         //check start of block to see if JPEG header
         if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && 
-           (buffer[3] & 0xf0) == 0xe0)
+            (buffer[3] & 0xf0) == 0xe0)
         {
             counter++;
             sprintf(out_name, "%03i.jpg", counter); 
