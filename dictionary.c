@@ -28,7 +28,7 @@ node;
 node *root;
 
 //Make a new trie node
-node * make_node(void)
+node *make_node(void)
 {
     node *new_node = malloc(sizeof(node));
     if (new_node == NULL)
@@ -91,7 +91,7 @@ bool load(const char *dictionary)
     while (fscanf(file, "%s", word) != EOF)
     {
         node *current = root;
-        for(int i = 0, index = 0; i < strlen(word); i++)
+        for (int i = 0, index = 0; i < strlen(word); i++)
         {
             index = get_index(word[i]);
             if (current->children[index] == NULL)
