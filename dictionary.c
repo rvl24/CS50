@@ -1,5 +1,8 @@
 // Implements a dictionary's functionality
-//Thanks to https://www.geeksforgeeks.org/trie-insert-and-search/
+//Sources cited:
+//https://www.geeksforgeeks.org/trie-insert-and-search/
+//https://stackoverflow.com/questions/44734028/member-access-within-null-pointer-of-type-struct-listnode
+//http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/Text/Progs/Trie/4/string_trie.c
 
 #include <stdbool.h>
 #include <stdio.h>
@@ -14,7 +17,6 @@
 
 //Counter to determine number of words in dictionary
 int dict_size = 0;
-
 
 //Define a trie node
 typedef struct node
@@ -46,20 +48,18 @@ node *make_node(void)
 //Get index for node array from character
 int get_index(char character)
 {
-    int index;
-    if (character == '\'')
+    int index = tolower(character) - 'a';
+    
+    //ASCII for apostrophe < ASCII for a, so:
+    if (index < 0)
     {
         index = N - 1;
-    }
-    else
-    {
-        index = tolower(character) - 'a';
     }
     return index;
 }
 
-//free all nodes in a trie
-void free_trie(node *current)
+//free all nodes in a trie, return true if successful
+bool free_trie(node *current)
 {
     for (int i = 0; i < N; i++)
     {
@@ -68,7 +68,8 @@ void free_trie(node *current)
             free_trie(current->children[i]);
         }
     }
-    free(current); 
+    free(current);
+    return true;
 }
 
 // Loads dictionary into memory, returning true if successful else false
@@ -87,20 +88,29 @@ bool load(const char *dictionary)
 
     // Buffer for a word
     char word[LENGTH + 1];
+    
     // Insert words into trie
     while (fscanf(file, "%s", word) != EOF)
     {
         node *current = root;
-        for (int i = 0, index = 0; i < strlen(word); i++)
+        int word_length = strlen(word); 
+        
+        //extract one letter at a time from word
+        for (int i = 0, index = 0; i < word_length; i++)
         {
             index = get_index(word[i]);
+            
+            //traverse trie, add node if none exists for the current letter
             if (current->children[index] == NULL)
             {
                 current->children[index] = make_node();
             }
             current = current->children[index];
         }
+        //specify that last node is the end of a word
         current->is_word = true;
+        
+        //count the word
         dict_size++;
     }
 
@@ -117,8 +127,8 @@ unsigned int size(void)
     return dict_size;
 }
 
-// Returns true if word is in dictionary else false
-//This function assumes that there is at least one word in the dictinary that starts with every letter.
+// Returns true if word is in dictionary else false. Assumes that there is at 
+//least one word in the dictinary that starts with every letter.
 bool check(const char *word)
 {
     node *current = root;
@@ -137,9 +147,12 @@ bool check(const char *word)
         }
         else
         {
+            //if nodes don't extend to end of word, it's misspelled
             return false;
         }
     }
+    
+    //check that last node is marked as the end of a word
     if (current->is_word)
     {
         return true;
@@ -150,11 +163,16 @@ bool check(const char *word)
     }
 }
 
-
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
     node *current = root;
-    free_trie(current); 
-    return true; 
+    if (free_trie(current))
+    {
+        return true; 
+    }
+    else
+    {
+        return false;
+    }
 }
