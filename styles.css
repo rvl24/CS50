@@ -1,0 +1,27 @@
+h
+{
+    font-size: 35px;
+}
+p
+{
+    font-size: 22px;
+}
+body
+{
+    text-align: center;
+    font-family: 'Alegreya SC';
+}
+.blue-box
+{
+    width: 70%;
+    background-color: #9ad8f4;
+    opacity: 0.8;
+    transform: translate(20%, 30%);
+    height: 100%;
+}
+h2
+{
+    font-style:italic;
+    font-size: 25px;
+}
+
