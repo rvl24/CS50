@@ -9,7 +9,6 @@ def main():
         print("Usage: python caesar.py k")
         exit(1)
         
-        
     plaintext = get_string("plaintext: ")
     key = int(argv[1])
     ciphertext = ""
