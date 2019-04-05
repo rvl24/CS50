@@ -1,14 +1,15 @@
-from sys import argv
+from sys import argv, exit
 from cs50 import get_string
 
 l_alphabet = 26
 
 
-def main(argv):
+def main():
     if len(argv) != 2 or not argv[1].isdigit():
         print("Usage: python caesar.py k")
-        return 1
-       
+        exit(1)
+        
+        
     plaintext = get_string("plaintext: ")
     key = int(argv[1])
     ciphertext = ""
@@ -21,7 +22,7 @@ def main(argv):
         else:
             ciphertext += character
     print(f"ciphertext: {ciphertext}")        
-
+    
 
 if __name__ == "__main__":
-    main(argv)
+    main()
