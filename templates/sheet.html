@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<table class= "table" id="wells">
+    <thead>
+        <tr>
+            {% for header in headers: %}
+                <th scope="col">{{header}}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+            {% for row in rows: %}
+                <tr>
+                {% for item in row: %}
+                    <td>{{item}}</td> 
+                {% endfor %}
+                </tr>
+            {% endfor %}
+    </tbody>
+    
+</table>
+
+{% endblock %}
