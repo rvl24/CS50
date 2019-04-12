@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">Well Survey</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+<form action="/form" method="post" name="well_survey">
+    
+    <div class="form-group">
+        <label for="well-id" class="large">
+            Well ID
+        </label>
+        <input type="text" class="form-control" id="well-id" name="well_id" placeholder="e.g. MW-1">        
+    </div>
+     
+    <label class=large>
+        Road Box
+    </label> 
+    
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="road_box" id="standpipe" value="standpipe" checked>
+        <label class="form-check-label" for="standpipe">
+            Standpipe
+        </label>
+    </div>
+    
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="road_box" id="flush_mount" value="flush_mount">
+        <label class="form-check-label" for="flush_mount">
+            Flush Mount
+        </label>
+    </div>
+    
+    
+    <div class="form-group">
+        <label for="depth_to_water" class="large">
+            Depth to Water
+        </label>      
+        <input type="text" class="form-control" id="depth_to_water" name="depth_to_water" placeholder="e.g. 1.24">        
+    </div>
+    
+    
+    <div class="form-group">
+        <label for="depth_to_bottom" class="large">
+            Depth to Bottom
+        </label>        
+        <input type="text" class="form-control" id="depth_to_bottom" name="depth_to_bottom" placeholder="e.g. 1.24">        
+    </div>
+    
+    
+    <div class="form-group">
+        <label class="large" for="well_condition">
+            Well Condition
+        </label>        
+        <select class="form-control" name="well_condition" id="well_condition">
+            <option disabled selected value="">Well Condition</option>
+            <option value="Excellent">Excellent</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Poor">Poor</option>
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+    
+</form>
+
+{% endblock %}
