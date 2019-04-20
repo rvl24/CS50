@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<table class= "table">
+    <thead>
+        <tr>
+            {% for header in headers %}
+                <th scope="col">{{header}}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+        <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                    {% for item in transaction.items() %}
+                        {% if item[0] == "quantity" and item[1] < 0 %}
+                            <td style="color: red">{{item[1]}}</td> 
+                        {% elif item[0] == "quantity" and item[1] > 0 %}
+                            <td style="color: green">{{item[1]}}</td> 
+                        {% else %}
+                            <td>{{item[1]}}</td> 
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+    
+    <footer class="small text-left text-muted">
+        <font color=red>Red</font> shares indicate a sale; <font color=green>green</font> shares indicate a purchas
+    </footer>
+    
+    <script> 
+        $(document).ready(function(){
+            $("table").DataTable();
+        });
+    </script>
+{% endblock %}
