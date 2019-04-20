@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <table class= "table">
+    <thead>
+        <tr>
+            {% for header in headers %}
+                <th scope="col">{{header}}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td style="font:bold">CASH</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{cash}}</td>
+        </tr>
+        <tr>
+            <td style="font:bold">GRAND TOTAL</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>{{grand_total}}</td>
+        </tr>
+    </tfoot>
+        <tbody>
+            {% for stock in stocks %}
+                <tr>
+                    <td>{{stock["symbol"]}}</td>
+                    <td>{{stock["company"]}}</td>
+                    <td>{{stock["SUM(quantity)"]}}</td>                    
+                    <td>{{stock["current_price"]}}</td>                    
+                    <td>{{stock["total_value"]}}</td>                    
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <script> 
+        $(document).ready(function(){
+            $("table").DataTable();
+        });
+    </script>
+{% endblock %}
