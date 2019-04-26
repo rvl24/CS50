@@ -7,12 +7,12 @@
      by sending it to everyone, anyways, and it should not be grouped with the first 
      three.
 
-2.2. I think the UI is more to blame than the human. 
+2.2. I think the human made a perfectly reasonable mistake based on the design of the UI. 
 
-2.3a. Reorganize the options in this form so that the "for-real" option is not 
+2.3a. Reorganize the options in this form so that the "not a drill" option is not 
       grouped with the test options. 
 
-2.3b. Make the "for-real" option stylistically different from the rest, like bright
+2.3b. Make the "not a drill" option stylistically different from the test messages, like bright
       red or something
 
 2.3c. Display an alert if the "for-real" option is selected, so that the user has 
@@ -25,7 +25,7 @@
      maybe miss the header identifying it as such; perhaps overlook the stylistic
      differences, not having much of an eye for design; select the real emergency
      message; completely ignore the alert box, since those damn things are always
-     popping up these days, carelessly selecting "Yes, this is a real emergency,
+     popping up these days, carelessly selecting "Yes, this is a real emergency",
      and launch that message to the whole state of Hawaii. 
 ## Debrief
 

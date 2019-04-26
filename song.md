@@ -18,6 +18,6 @@
 
 ## Debrief
 
-a. TODO
+a. none
 
 b. 5,10,1,2,5,

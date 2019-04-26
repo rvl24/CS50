@@ -24,6 +24,6 @@
 
 ## Debrief
 
-a. TODO
+a. none
 
-b. TODO minutes
+b. 10,10,1,2

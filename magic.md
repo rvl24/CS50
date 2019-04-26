@@ -20,11 +20,11 @@
      0 so that the result is always 0. The first three bits must be 1s, so they must be 
      compared against 1s. The fourth bit must be a zero, and the only way to check this is
      to compare against 1 to see if 0 is the result. Thus f is used to check that the first 
-     four bits are e, and then the last four bits are compared to 0 because they can be whatever. 
+     four bits are e, and then the last four bits are compared to 0 because they can be whichever. 
 
 4.5. Zamyla's code just does 1 comparison, whereas the logical OR code has to compare the fourth
      byte to sixteen things, one at a time. I imagine that the latter requires greater time and memory, 
-     because each of those sixteen values has to be stored, and then pulled out, compared against, and put back. 
+     because each of those sixteen values has to be stored, and then retrieved and compared against. 
 
 4.6. See `magic.c`.
 
