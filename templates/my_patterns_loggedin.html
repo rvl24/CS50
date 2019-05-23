@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<main>
+	<form>
+	{% for pattern in patterns}
+		<button class="btn btn-primary" type="submit" name="pattern">Pattern {{pattern[0]["id"]}}</button>
+	{% endfor %}
+	</form>
+</main>
+{% endblock %}

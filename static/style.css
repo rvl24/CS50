@@ -1,0 +1,52 @@
+/*BASIC*/
+html {
+	height: auto;
+	width: auto;
+	margin: 0px;
+	padding: 0px;}
+body {
+	height: auto;
+	width: auto;
+	margin: 0px;
+	padding: 0px;}
+h1 {
+	margin-top: 80px;
+	font-family: 'Gugi';
+	text-align: center;
+	font-size: 80px;
+}
+h2 {
+	font-family: 'Rubik';
+	text-align: center;
+	font-size: 40px;
+}
+p {
+	font-family: 'Rubik';
+	font-size: 20px;
+}
+a:link, a:visited {
+	color: #111111;
+	text-decoration: none;
+}
+a:hover,a:active {
+	color: #001f3f;
+}
+.form-signin {
+	width: 100%;
+	max-width: 420px;
+	padding: 15px;
+	margin: auto;
+}
+.footer_text {
+	margin-top: 30px;
+	text-align: center;
+}
+.fab {
+	font-size: 40px;
+}
+.bg-green {
+	background-color: #136612;
+}
+.dropdown-toggle {
+	cursor: pointer;
+}
