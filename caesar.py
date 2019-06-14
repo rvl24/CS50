@@ -1,3 +1,5 @@
+#A program to encode messages with a Caesar cipher
+
 from sys import argv, exit
 from cs50 import get_string
 
